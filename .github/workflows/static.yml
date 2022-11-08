@@ -1,0 +1,20 @@
+name: Resume Template
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  resume-template:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Resume Template Action
+        uses: rennancockles/resume-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          directory: 'data'
+          cname: 'resume.mycustomdomain.com'
